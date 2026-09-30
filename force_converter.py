@@ -1,17 +1,15 @@
 import tkinter as tk
 from tkinter import ttk
 
+
+UNIT_TO_NEWTON = {"N": 1, "kN": 1000, "kgf": 9.80665}
+
+
 def convert_force():
     try:
         value = float(value_entry.get())
         unit = unit_combobox.get()
-
-        if unit == "kN":
-            force_n = value * 1000
-        elif unit == "kgf":
-            force_n = value * 9.80665
-        else:
-            force_n = value
+        force_n = value * UNIT_TO_NEWTON[unit]
         force_kn = force_n / 1000
         force_kgf = force_n / 9.80665
         result_label.config(
@@ -24,10 +22,12 @@ def convert_force():
             foreground="red",
         )
 
+
 def clear_all():
     value_entry.delete(0, tk.END)
     unit_combobox.set("kN")
     result_label.config(text="결과가 여기에 표시됩니다.", foreground="black")
+
 
 window = tk.Tk()
 window.title("힘 단위 변환기")
