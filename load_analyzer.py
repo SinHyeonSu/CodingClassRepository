@@ -8,7 +8,7 @@ from matplotlib.ticker import MultipleLocator
 
 
 area_mm2 = 100
-REFERENCE_STRESS_MPA = 6
+REFERENCE_STRESS_MPA = 8
 
 
 def main():
